@@ -9,3 +9,66 @@ Spectrum Spy 1.0 – Fast Sweeping SDR Spectrum Analyzer
 Astro Spy 1.0 – Radio Astronomy Utility for Hydrogen Line Spectroscopy
 SPY Server for Windows v2.0.1700 – Multi-client SDR Server with Fast DDC
 RTL-SDR Dongle Installation Script
+
+
+Extraia (descompacte) o sdrsharp-x86.zip para uma pasta no seu PC. 
+(Importante! Muitas pessoas que têm problemas esquecem esta etapa! Não execute os arquivos no arquivo zip ou as etapas a seguir falharão).
+(Além disso, não extraia para uma pasta no diretório Arquivos de programas, ou a instalação poderá falhar, 
+pois essas pastas geralmente são feitas automaticamente somente para leitura pelo Windows).
+
+Clique duas vezes em install-rtlsdr.bat na pasta extraída.
+Isso iniciará um prompt de comando que fará o download de todos os drivers necessários para fazer o SDRSharp funcionar com o RTL-SDR.
+O prompt de comando será fechado automaticamente após alguns segundos quando terminar. 
+No arquivo bat, os arquivos rtlsdr.dll e zadig.exe serão baixados no diretório SDR #. 
+Se eles não foram baixados, o seu PC ou a solução antivírus pode estar configurada incorretamente 
+e pode ter problemas para executar arquivos em lotes 
+(verifique se a pasta não é somente leitura e não está localizada no diretório Arquivos de Programas).
+
+Conecte seu dongle. 
+Não instale nenhum software fornecido (se houver) e aguarde alguns segundos até que o plug and play termine de tentar instalar o dongle 
+(ele falhará ou instalará os drivers do Windows DVB-T TV). 
+Se você já instalou os drivers DVB-T incluídos no CD que acompanham alguns dongles, desinstale-os primeiro.
+Na pasta em que você extraiu os arquivos sdrsharp, localize o arquivo chamado zadig.exe. 
+Clique com o botão direito neste arquivo e selecione "Executar como administrador".
+No Zadig, vá para "Opções-> Listar todos os dispositivos" e verifique se esta opção está marcada. 
+Se você estiver usando o Windows 10, em alguns casos, talvez seja necessário desmarcar a opção "Ignorar hubs ou pais compostos".
+
+Selecione "Interface em massa (interface 0)" na lista suspensa. 
+Observe que em alguns PCs, você pode ver algo como RTL2832UHIDIR ou RTL2832U em vez do volume na interface. 
+Essa também é uma seleção válida. 
+Não selecione "Receptor USB (Interface 0) ou Interface 1" ou qualquer outra coisa ou você substituirá esse driver! 
+Verifique novamente se o ID USB mostra "0BDA 2838 00", pois isso indica que o dongle está selecionado.
+Precisamos instalar o driver WinUSB, 
+para garantir também que o WinUSB esteja selecionado na caixa após a seta ao lado de onde diz Driver (esta é a seleção padrão).
+- Observe que houve algumas confusões para algumas pessoas nessa etapa. O objetivo é instalar o driver WinUSB. 
+Portanto, para ficar claro, a caixa à esquerda da seta mostra o driver atualmente instalado, 
+enquanto a caixa à direita da seta mostra o driver que será instalado na próxima etapa. 
+Na primeira vez em que você abrir o zadig, 
+a caixa à esquerda exibirá 'Nenhum' ou os drivers DVB-T padrão instalados pelo Windows (RTL2832UUSB), 
+dependendo da configuração e versão do Windows.
+
+Clique em Substituir driver. 
+Em alguns computadores, você pode receber um aviso de que o editor não pode ser verificado, 
+mas basta aceitá-lo clicando em "Instalar este software de driver mesmo assim". 
+Isso instalará os drivers necessários para executar o dongle como um rádio definido por software. 
+Observe que pode ser necessário executar o zadig.exe novamente se você mover o dongle para outra porta USB ou 
+desejar usar dois ou mais dongles juntos.
+
+Abra o SDRSharp.exe e defina a caixa suspensa "Origem" como 'RTL-SDR (USB)'. 
+Essa guia "Origem" está no canto superior esquerdo. (Observe que, na primeira vez em que você faz isso, 
+você pode receber uma mensagem na tela inteligente indicando que o Windows protegeu seu PC, este é um alarme falso. 
+Basta clicar em "mais informações" e depois em "executar assim mesmo").
+Pressione o botão Play (o triângulo voltado para a direita). 
+O rádio do software RTL-SDR agora deve estar configurado e pronto para uso! 
+Se tudo tiver funcionado, você poderá começar a sintonizar as frequências.
+
+Importante! 
+Não se esqueça de também ajustar as configurações de ganho de RF pressionando 
+o botão Configurar (se parece com uma engrenagem) na parte superior ao lado do botão Reproduzir. 
+Por padrão, o ganho de RF é definido como zero. 
+Um ganho de zero provavelmente não receberá nada além de uma transmissão FM muito forte 
+- aumente o ganho até você começar a ver outros sinais. Para receber sinais de alta frequência com um RTL-SDR.com V3, 
+consulte o guia do usuário da V3.
+
+
+
