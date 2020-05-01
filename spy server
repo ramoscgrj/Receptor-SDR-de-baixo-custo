@@ -9,15 +9,20 @@ cd spyserver
 Baixe o SpyServer mais recente e extraia-o usando os comandos abaixo. 
 NOTA: Você precisará fazer o download da versão correta para a plataforma que está usando (por exemplo, 32 ou 64 bits, ARM ou x86). 
 Acesse airspy.com/download e encontre os links para o download do SpyServer que correspondem à sua plataforma. 
-Substitua o link abaixo por ele. O link usado neste exemplo é para a versão ARM de 32 bits, que é usada pelo Raspberry Pi e pela maioria dos outros PCs de placa única como Odroids e Orange Pi.
+Substitua o link abaixo por ele. 
+O link usado neste exemplo é para a versão ARM de 32 bits, que é usada pelo Raspberry Pi e pela maioria dos outros PCs de placa única 
+como Odroids e Orange Pi.
 wget -O spyserver.tgz http://airspy.com/?ddownload=4247 #substituir pelo link atual, ou baixar direto pelo browser
 tar xvzf spyserver.tgz
 Use um editor de texto como o nano para editar o arquivo spyserver.config. 
 Altere o "device_type" para "device_type = RTL-SDR" (sem aspas).
  
-Se você não estiver familiarizado com o Nano, observe que não pode usar o mouse. Você precisará usar as teclas de seta para mover o cursor. A edição é feita com as teclas bakspace / del e teclas do teclado, como de costume. Para salvar e sair, pressione "Ctrl + X" e, em seguida, a tecla "y".
+Se você não estiver familiarizado com o Nano, observe que não pode usar o mouse. 
+Você precisará usar as teclas de seta para mover o cursor. A edição é feita com as teclas bakspace / del e teclas do teclado, 
+como de costume. Para salvar e sair, pressione "Ctrl + X" e, em seguida, a tecla "y".
 nano spyserver.config
-Encontre o endereço IP do seu dispositivo usando o comando "ifconfig". Nota NÃO "ipconfig" no Windows, observe "f". Anote esse endereço IP, pois é o endereço que você usará para se conectar ao SpyServer.
+Encontre o endereço IP do seu dispositivo usando o comando "ifconfig". Nota NÃO "ipconfig" no Windows, observe "f". 
+Anote esse endereço IP, pois é o endereço que você usará para se conectar ao SpyServer.
  
 Agora você pode executar o SpyServer
 ./spyserver
@@ -64,7 +69,18 @@ Adicione a seguinte linha na parte inferior.
 @reboot / home / pi / spyserver / spyserver /home/pi/spyserver/spyserver.config
 Pressione Ctrl + X e, em seguida, 'y' para salvar e sair.
 
+Encaminhamento de porta
+Se você deseja se conectar ao seu SpyServer pela Internet, pode ser necessário ativar o encaminhamento de porta no seu roteador. 
+Você precisa informar ao seu roteador qual endereço IP ou endereço MAC para encaminhar os dados da porta 5555, 
+que é a porta SpyServer padrão. Os dados devem ser encaminhados para o endereço IP ou MAC do dispositivo que está executando o SpyServer. 
+Você provavelmente também desejará garantir que o dispositivo executando o SpyServer esteja definido como um IP estático
+de dentro do seu roteador.
 
+O encaminhamento de porta está um pouco fora do escopo deste tutorial, pois o procedimento é diferente para cada roteador de rede.
+Existem guias para a maioria dos roteadores no mundo em portforward.com .
+
+Você pode encontrar seu IP público navegando para whatismyip.com em um PC na sua rede ou
+executando 'curl ifconfig.me' em um terminal Linux.
 
 PARA MAIORES INFORMAÇÕES 
 https://www.rtl-sdr.com/rtl-sdr-tutorial-setting-up-and-using-the-spyserver-remote-streaming-server-with-an-rtl-sdr/
