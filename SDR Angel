@@ -1,0 +1,41 @@
+Abaixo está um breve tutorial sobre como iniciar uma execução com o SDRAngel no Windows com um RTL-SDR:
+
+https://github.com/f4exb/sdrangel/releases
+
+1. Baixe a versão mais recente do SDRAngel na seção de lançamentos do GitHub . 
+Somente uma compilação para Windows x64 está disponível e esse nome de arquivo é sdrangel64_v3.8.4.7z 
+(o número da versão pode mudar no futuro). Os arquivos .deb do Linux também estão disponíveis para várias versões do Ubuntu.
+ 
+2. Usando o 7zip , extraia o arquivo 7z para uma pasta no seu PC.
+ 
+3. Conecte seu dongle RTL-SDR e execute sdrangel.exe. Assumimos que o zadig já foi executado anteriormente para instalar os drivers RTL-SDR.
+ 
+4. À esquerda, em 'controle de dispositivos de amostragem', clique no ícone da pequena mão. 
+Uma caixa suspensa será exibida e, a partir daqui, você poderá selecionar o RTL-SDR. Pressione OK.
+ 
+5. Agora você pode clicar no botão verde de reprodução no canto superior esquerdo para iniciar o SDR.
+ 
+6. Por padrão, a largura de banda da tela é ampliada muito de perto com dizimação x16 e uma taxa de amostragem de 1 MSPS. 
+Portanto, na caixa superior esquerda, altere "Dec" para 1 e aumente a taxa de amostragem para 2 ou 2,4 MSPS, se desejar.
+ 
+7. Sugerimos também clicar no botão 'DC' no canto superior esquerdo para remover o pico de DC.
+ 
+8. Agora você pode sintonizar como em outros softwares usando os números de frequência no canto superior esquerdo.
+9. Se você deseja uma exibição do analisador de espectro, vá para a caixa inferior esquerda e clique no ícone azul do espectro.
+ 
+10. Ao contrário da maioria dos outros softwares, você precisa adicionar um demodulador antes de clicar em um sinal e ouvi-lo. 
+A lista de demoduladores disponíveis pode ser encontrada na segunda caixa à esquerda, 
+logo abaixo do ícone de mão que você usou para adicionar o RTL-SDR.
+ 
+11. Selecione o demodulador correto para o seu sinal de interesse (por exemplo, WFM, NFM, AM, DSD, LoRa etc ...) e clique no ícone "+". 
+Isso adicionará o demodulador à direita da janela do SDRAngel.
+Você pode arrastar a janela da direita um pouco maior se não conseguir ver toda a opção demodulador também.
+ 
+12. Agora você pode clicar no sinal na janela de espectro para mover o VFO e começar a desmodular o sinal. 
+Você pode explorar as opções de demodulador à direita.
+ 
+13. Vários desmoduladores podem ser adicionados, se desejado, apenas repita as etapas 8 a 10. Se você adicionar mais de um desmodulador, 
+os VFOs precisarão ser arrastados.
+ 
+14. Se estiver com problemas para reconhecer um sinal de voz digital com DSD, 
+tente ampliar com o recurso de dizimação ou reduzir a taxa de amostragem. Parece não funcionar muito bem com larguras de banda maiores.
